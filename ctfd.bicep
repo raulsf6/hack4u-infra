@@ -2,7 +2,7 @@
 param resourcesLocation string = resourceGroup().location
 
 @description('Deploy with VNet')
-param vnet bool = true
+param vnet bool = false
 
 @description('SKU Name for Azure cache for Redis')
 @allowed([
@@ -35,11 +35,8 @@ param administratorLoginPassword string
 
 @description('Database vCores count')
 @allowed([
+  1
   2
-  4
-  8
-  16
-  32
 ])
 param databaseVCores int = 2
 
@@ -63,7 +60,6 @@ param webAppName string = 'ctfd-app-${uniqueString(resourceGroup().id)}'
 
 @description('SKU for Azure Container Registry')
 var containerRegistrySku = 'Basic'
-
 
 @description('Name of Azure Key Vault')
 var keyVaultName = 'ctfd-kv-${uniqueString(resourceGroup().id)}'

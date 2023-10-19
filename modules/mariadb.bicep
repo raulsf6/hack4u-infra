@@ -38,7 +38,7 @@ resource mariaDbServer 'Microsoft.DBforMariaDB/servers@2018-06-01' = {
   name: mariaServerName
   location: location
   sku: {
-    name: 'GP_Gen5_${databaseVCores}'
+    name: 'BC_Gen5_${databaseVCores}'
     size: '5120'
   }
   properties: {
